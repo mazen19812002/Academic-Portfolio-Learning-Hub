@@ -16,6 +16,10 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #e0f2fe; /* Light Blue Background */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         /* Thin titles as per instructions */
@@ -35,83 +39,130 @@
             transform: scale(1.05);
         }
 
-        /* Branding Footer */
-        footer {
-            margin-top: 2rem;
-            padding: 1rem;
+        /* Animated multi-stop gradient for buttons (Blue/Green) */
+        .btn-gradient {
+            background: linear-gradient(270deg, #3b82f6, #10b981, #0ea5e9, #22c55e);
+            background-size: 300% 300%;
+            animation: gradientScroll 4s ease infinite;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .btn-gradient:hover {
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.6);
+            transform: scale(1.05);
+        }
+        /* Animated Icon on Hover */
+        .btn-gradient:hover i {
+            animation: pulseIcon 1s infinite;
+        }
+
+        /* Branding Footer - Animated Gradient Progress Bar */
+        .footer-gradient-bar {
+            background: linear-gradient(270deg, #1e3a8a, #3b82f6, #047857, #1e3a8a);
+            background-size: 300% 300%;
+            animation: gradientScroll 5s linear infinite;
+            color: white;
             text-align: center;
-            color: #475569;
+            padding: 0.75rem;
             font-size: 0.875rem;
+            font-weight: 600;
             width: 100%;
+            margin-top: auto;
+            letter-spacing: 0.05em;
+        }
+
+        /* Keyframes for Gradients and Icons */
+        @keyframes gradientScroll {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulseIcon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4">
-    <!-- Main Container -->
-    <div class="relative w-full max-w-4xl bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-600 rounded-3xl shadow-2xl p-8 hover-zoom">
-        
-        <!-- Header Section -->
-        <header class="text-center text-white mb-8 mt-4">
-            <h1 class="text-3xl sm:text-5xl tracking-tight mb-2">
-                Academic Portfolio & Learning Hub
-            </h1>
-            <p class="text-lg sm:text-xl thin-subtitle opacity-90">Curated Educational Resources and Professional Profile</p>
-        </header>
-
-        <!-- Buttons Grid -->
-        <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+<body class="flex flex-col items-center justify-between min-h-screen text-gray-900">
+    
+    <!-- Main Content Wrapper to push footer down -->
+    <div class="flex-grow flex items-center justify-center w-full p-4 sm:p-8">
+        <!-- Main Container -->
+        <div class="relative w-full max-w-4xl bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-600 rounded-3xl shadow-2xl p-8 hover-zoom">
             
-            <!-- AI Chatbot Button -->
-            <a href="https://mazenegykfs.github.io/Technical-Writing-Tutor-Chatbot/" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-6 rounded-xl shadow-lg flex items-center justify-center space-x-4 hover-zoom hover:bg-green-600">
-                <i class="fas fa-robot text-2xl"></i>
-                <div class="flex flex-col">
-                    <span class="font-semibold text-lg">Technical Writing Tutor</span>
-                    <span class="text-xs opacity-80">AI-Powered Writing Assistant</span>
-                </div>
-            </a>
+            <!-- Header Section -->
+            <header class="text-center text-white mb-8 mt-2">
+                <h1 class="text-4xl sm:text-5xl tracking-tight mb-2">
+                    Academic Portfolio & Learning Hub
+                </h1>
+                <p class="text-lg sm:text-xl thin-subtitle opacity-90">Curated Educational Resources and Professional Profile</p>
+            </header>
 
-            <!-- CV Button -->
-            <a href="https://mazenegykfs.github.io/MyCv/" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-6 rounded-xl shadow-lg flex items-center justify-center space-x-4 hover-zoom hover:bg-green-600">
-                <i class="fas fa-user-tie text-2xl"></i>
-                <div class="flex flex-col">
-                    <span class="font-semibold text-lg">Professional CV</span>
-                    <span class="text-xs opacity-80">Dr. Mazen Badawy's Profile</span>
-                </div>
-            </a>
+            <!-- Buttons Grid -->
+            <main class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                
+                <!-- AI Chatbot Button -->
+                <a href="https://mazenegykfs.github.io/Technical-Writing-Tutor-Chatbot/" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-5 rounded-2xl shadow-lg flex items-center justify-center space-x-4">
+                    <i class="fas fa-robot text-3xl w-8 text-center"></i>
+                    <div class="flex flex-col flex-grow">
+                        <span class="font-bold text-lg sm:text-xl">Technical Writing Tutor 🤖</span>
+                        <span class="text-sm opacity-90">AI-Powered Writing Assistant</span>
+                    </div>
+                </a>
 
-            <!-- Flipped Classroom Button -->
-            <a href="https://mazenegykfs.github.io/Flipped-Classroom/" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-6 rounded-xl shadow-lg flex items-center justify-center space-x-4 hover-zoom hover:bg-green-600">
-                <i class="fas fa-chalkboard-teacher text-2xl"></i>
-                <div class="flex flex-col">
-                    <span class="font-semibold text-lg">Flipped Classroom</span>
-                    <span class="text-xs opacity-80">Innovative Teaching Model</span>
-                </div>
-            </a>
+                <!-- CV Button -->
+                <a href="https://mazenegykfs.github.io/MyCv/" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-5 rounded-2xl shadow-lg flex items-center justify-center space-x-4">
+                    <i class="fas fa-user-tie text-3xl w-8 text-center"></i>
+                    <div class="flex flex-col flex-grow">
+                        <span class="font-bold text-lg sm:text-xl">Professional CV 👨‍🏫</span>
+                        <span class="text-sm opacity-90">Dr. Mazen Badawy's Profile</span>
+                    </div>
+                </a>
 
-            <!-- Flashcards 1 Button -->
-            <a href="https://mazenegykfs.github.io/Flashcards/" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-6 rounded-xl shadow-lg flex items-center justify-center space-x-4 hover-zoom hover:bg-green-600">
-                <i class="fas fa-clone text-2xl"></i>
-                <div class="flex flex-col">
-                    <span class="font-semibold text-lg">Flashcards Collection A</span>
-                    <span class="text-xs opacity-80">Interactive Study Tools</span>
-                </div>
-            </a>
+                <!-- Flipped Classroom Button -->
+                <a href="https://mazenegykfs.github.io/Flipped-Classroom/" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-5 rounded-2xl shadow-lg flex items-center justify-center space-x-4">
+                    <i class="fas fa-chalkboard-teacher text-3xl w-8 text-center"></i>
+                    <div class="flex flex-col flex-grow">
+                        <span class="font-bold text-lg sm:text-xl">Flipped Classroom 🏫</span>
+                        <span class="text-sm opacity-90">Innovative Teaching Model</span>
+                    </div>
+                </a>
 
-            <!-- Flashcards 2 Button (Alt Repo) -->
-            <a href="https://mazen19812002.github.io/Flashcards/" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-6 rounded-xl shadow-lg flex items-center justify-center space-x-4 hover-zoom hover:bg-green-600">
-                <i class="fas fa-layer-group text-2xl"></i>
-                <div class="flex flex-col">
-                    <span class="font-semibold text-lg">Flashcards Collection B</span>
-                    <span class="text-xs opacity-80">Extended Learning Modules</span>
-                </div>
-            </a>
+                <!-- Flashcards 1 Button -->
+                <a href="https://mazenegykfs.github.io/Flashcards/" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-5 rounded-2xl shadow-lg flex items-center justify-center space-x-4">
+                    <i class="fas fa-clone text-3xl w-8 text-center"></i>
+                    <div class="flex flex-col flex-grow">
+                        <span class="font-bold text-lg sm:text-xl">Flashcards Set A 🗂️</span>
+                        <span class="text-sm opacity-90">Interactive Study Tools</span>
+                    </div>
+                </a>
 
-        </main>
+                <!-- Flashcards 2 Button (Alt Repo) -->
+                <a href="https://mazen19812002.github.io/Flashcards/" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-5 rounded-2xl shadow-lg flex items-center justify-center space-x-4">
+                    <i class="fas fa-layer-group text-3xl w-8 text-center"></i>
+                    <div class="flex flex-col flex-grow">
+                        <span class="font-bold text-lg sm:text-xl">Flashcards Set B 🗂️</span>
+                        <span class="text-sm opacity-90">Extended Learning Modules</span>
+                    </div>
+                </a>
+
+                <!-- Attendance Recorder Button -->
+                <a href="https://gemini.google.com/share/30a64884500f" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-5 rounded-2xl shadow-lg flex items-center justify-center space-x-4">
+                    <i class="fas fa-user-check text-3xl w-8 text-center"></i>
+                    <div class="flex flex-col flex-grow">
+                        <span class="font-bold text-lg sm:text-xl">Attendance Recorder 📝</span>
+                        <span class="text-sm opacity-90">Track and Manage Attendance</span>
+                    </div>
+                </a>
+
+            </main>
+        </div>
     </div>
 
-    <!-- Branding Footer -->
-    <footer>
-        All rights are reserved to Dr. Mazen Badawy – Doctorate of English Teaching & Testing
+    <!-- Animated Gradient Branding Footer -->
+    <footer class="footer-gradient-bar shadow-inner">
+        All rights are reserved to Dr. Mazen Badawy – Doctor of English Teaching & Testing
     </footer>
 </body>
 </html>
