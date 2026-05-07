@@ -26,11 +26,9 @@
         h1 {
             font-weight: 200 !important;
         }
-
         .thin-subtitle {
             font-weight: 300;
         }
-
         /* Hover scale transition */
         .hover-zoom {
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -38,7 +36,6 @@
         .hover-zoom:hover {
             transform: scale(1.05);
         }
-
         /* Animated multi-stop gradient for buttons (Blue/Green) */
         .btn-gradient {
             background: linear-gradient(270deg, #3b82f6, #10b981, #0ea5e9, #22c55e);
@@ -54,7 +51,6 @@
         .btn-gradient:hover i {
             animation: pulseIcon 1s infinite;
         }
-
         /* Branding Footer - Animated Gradient Progress Bar */
         .footer-gradient-bar {
             background: linear-gradient(270deg, #1e3a8a, #3b82f6, #047857, #1e3a8a);
@@ -69,14 +65,12 @@
             margin-top: auto;
             letter-spacing: 0.05em;
         }
-
         /* Keyframes for Gradients and Icons */
         @keyframes gradientScroll {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         @keyframes pulseIcon {
             0% { transform: scale(1); }
             50% { transform: scale(1.25); }
@@ -85,12 +79,10 @@
     </style>
 </head>
 <body class="flex flex-col items-center justify-between min-h-screen text-gray-900">
-    
     <!-- Main Content Wrapper to push footer down -->
     <div class="flex-grow flex items-center justify-center w-full p-3 sm:p-8">
         <!-- Main Container -->
         <div class="relative w-full max-w-7xl bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-600 rounded-3xl shadow-2xl p-5 sm:p-8 hover-zoom">
-            
             <!-- Header Section -->
             <header class="text-center text-white mb-8 mt-2">
                 <h1 class="text-4xl sm:text-5xl tracking-tight mb-2">
@@ -101,7 +93,6 @@
 
             <!-- Buttons Grid -->
             <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
-                
                 <!-- Statistics Button -->
                 <a href="https://mazenegykfs.github.io/Home/" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-4 sm:p-5 rounded-2xl shadow-lg flex items-center justify-start space-x-3 sm:space-x-4 overflow-hidden">
                     <i class="fas fa-chart-line text-2xl sm:text-3xl w-8 text-center shrink-0"></i>
@@ -210,6 +201,14 @@
                     </div>
                 </a>
 
+                <!-- Images to PDF Button -->
+                <a href="https://mazenegykfs.github.io/-Paste-Images-to-PDF/" target="_blank" rel="noopener noreferrer" class="btn-gradient text-white p-4 sm:p-5 rounded-2xl shadow-lg flex items-center justify-start space-x-3 sm:space-x-4 overflow-hidden">
+                    <i class="fas fa-file-pdf text-2xl sm:text-3xl w-8 text-center shrink-0"></i>
+                    <div class="flex flex-col flex-grow min-w-0">
+                        <span class="font-bold text-[15px] sm:text-lg whitespace-nowrap truncate">Images to PDF 📄</span>
+                        <span class="text-xs sm:text-sm opacity-90 whitespace-nowrap truncate">Convert Pasteboard Images to PDF</span>
+                    </div>
+                </a>
             </main>
         </div>
     </div>
